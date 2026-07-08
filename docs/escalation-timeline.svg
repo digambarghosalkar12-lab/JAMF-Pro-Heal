@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-label="Jamf self heal two day escalation timeline">
+  <defs>
+    <style>
+      .bg{fill:#f8fafc}.title{font:700 28px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#0f172a}.t{font:500 15px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#334155}.h{font:700 18px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#0f172a}.small{font:500 13px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#475569}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2;rx:18}.native{fill:#eff6ff;stroke:#3b82f6}.dialog{fill:#faf5ff;stroke:#a855f7}.repair{fill:#ecfdf5;stroke:#22c55e}.line{stroke:#2563eb;stroke-width:5;stroke-linecap:round}.dot{fill:#2563eb}.arrow{stroke:#2563eb;stroke-width:3;fill:none;marker-end:url(#arrow)}.mono{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#1e293b}
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#2563eb"/></marker>
+  </defs>
+  <rect class="bg" width="1200" height="520"/>
+  <text x="60" y="58" class="title">Escalation Timeline</text>
+  <text x="60" y="90" class="t">A repairable Jamf/MDM issue is not forced immediately. Users get quiet notifications first, then a SwiftDialog prompt after two days.</text>
+
+  <line x1="120" y1="230" x2="1080" y2="230" class="line"/>
+  <circle cx="160" cy="230" r="13" class="dot"/>
+  <circle cx="500" cy="230" r="13" class="dot"/>
+  <circle cx="820" cy="230" r="13" class="dot"/>
+  <circle cx="1040" cy="230" r="13" class="dot"/>
+
+  <rect x="60" y="130" width="230" height="86" class="card"/>
+  <text x="92" y="164" class="h">Issue detected</text>
+  <text x="92" y="190" class="small">Repairable Jamf / MDM problem</text>
+
+  <rect x="375" y="275" width="250" height="100" class="card native"/>
+  <text x="415" y="310" class="h">First 2 days</text>
+  <text x="415" y="338" class="small">Native macOS notification</text>
+  <text x="415" y="362" class="small">No forced repair</text>
+
+  <rect x="700" y="130" width="250" height="110" class="card dialog"/>
+  <text x="735" y="165" class="h">After 2 days</text>
+  <text x="735" y="193" class="small">SwiftDialog popup appears</text>
+  <text x="735" y="217" class="mono">Run Repair Now</text>
+
+  <rect x="935" y="275" width="220" height="100" class="card repair"/>
+  <text x="975" y="310" class="h">User approves</text>
+  <text x="975" y="338" class="small">Root runner starts</text>
+  <text x="975" y="362" class="small">Full repair workflow</text>
+
+  <path d="M160 230 C220 260 300 300 375 325" class="arrow"/>
+  <path d="M625 325 C700 310 760 260 820 230" class="arrow"/>
+  <path d="M950 185 C990 210 1020 245 1040 275" class="arrow"/>
+
+  <rect x="60" y="425" width="1080" height="42" rx="14" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="85" y="452" class="t">If the issue is network-only or slow internet, the system notifies but never runs Jamf cleanup or re-enrollment.</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Jamf self heal decision graph">
+  <defs>
+    <style>
+      .bg{fill:#f8fafc}.node{fill:#fff;stroke:#cbd5e1;stroke-width:2;rx:18}.start{fill:#eff6ff;stroke:#3b82f6}.ok{fill:#ecfdf5;stroke:#22c55e}.warn{fill:#fff7ed;stroke:#f97316}.repair{fill:#fef2f2;stroke:#ef4444}.txt{font:600 15px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#0f172a}.small{font:500 13px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#475569}.title{font:700 28px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#0f172a}.arrow{stroke:#2563eb;stroke-width:3;fill:none;marker-end:url(#arrow)}.label{font:700 12px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#2563eb}.no{fill:#b91c1c}.yes{fill:#15803d}
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#2563eb"/></marker>
+  </defs>
+  <rect class="bg" width="1200" height="900"/>
+  <text x="60" y="58" class="title">Decision Graph: Do not confuse network failure with Jamf failure</text>
+  <text x="60" y="90" class="small">The checker exits early for internet, speed, DNS, proxy, VPN, and Jamf URL reachability issues. Repair is reserved for local Jamf/MDM client failures.</text>
+
+  <rect x="450" y="125" width="300" height="80" class="node start"/>
+  <text x="505" y="158" class="txt">Hourly health check</text>
+  <text x="485" y="182" class="small">LaunchDaemon runs as root</text>
+
+  <rect x="450" y="260" width="300" height="85" class="node"/>
+  <text x="495" y="294" class="txt">General internet works?</text>
+  <text x="500" y="318" class="small">DNS + HTTPS to Apple</text>
+
+  <rect x="80" y="260" width="300" height="85" class="node warn"/>
+  <text x="142" y="294" class="txt">NETWORK_ISSUE</text>
+  <text x="118" y="318" class="small">Notify only — no repair</text>
+
+  <rect x="450" y="395" width="300" height="85" class="node"/>
+  <text x="510" y="429" class="txt">Speed acceptable?</text>
+  <text x="505" y="453" class="small">Downlink must be ≥ 50 Mbps</text>
+
+  <rect x="820" y="395" width="300" height="85" class="node warn"/>
+  <text x="900" y="429" class="txt">SLOW_INTERNET</text>
+  <text x="858" y="453" class="small">Notify only — no repair</text>
+
+  <rect x="450" y="530" width="300" height="85" class="node"/>
+  <text x="500" y="564" class="txt">Jamf URL reachable?</text>
+  <text x="485" y="588" class="small">DNS + HTTPS/SSL to Jamf</text>
+
+  <rect x="80" y="530" width="300" height="85" class="node warn"/>
+  <text x="125" y="564" class="txt">JAMF_CONNECTIVITY</text>
+  <text x="118" y="588" class="small">Notify IT/user — no cleanup</text>
+
+  <rect x="450" y="665" width="300" height="85" class="node"/>
+  <text x="500" y="699" class="txt">Local Jamf/MDM OK?</text>
+  <text x="485" y="723" class="small">Binary, plist, MDM, checkJSS</text>
+
+  <rect x="820" y="665" width="300" height="85" class="node repair"/>
+  <text x="875" y="699" class="txt">REPAIR_ALLOWED</text>
+  <text x="850" y="723" class="small">Ask user, then run as root</text>
+
+  <rect x="450" y="795" width="300" height="60" class="node ok"/>
+  <text x="560" y="830" class="txt">GOOD</text>
+
+  <path d="M600 205 L600 260" class="arrow"/>
+  <path d="M450 302 L380 302" class="arrow"/>
+  <text x="397" y="290" class="label no">NO</text>
+  <path d="M600 345 L600 395" class="arrow"/>
+  <text x="610" y="372" class="label yes">YES</text>
+  <path d="M750 437 L820 437" class="arrow"/>
+  <text x="780" y="425" class="label no">NO</text>
+  <path d="M600 480 L600 530" class="arrow"/>
+  <text x="610" y="508" class="label yes">YES</text>
+  <path d="M450 572 L380 572" class="arrow"/>
+  <text x="397" y="560" class="label no">NO</text>
+  <path d="M600 615 L600 665" class="arrow"/>
+  <text x="610" y="643" class="label yes">YES</text>
+  <path d="M750 707 L820 707" class="arrow"/>
+  <text x="780" y="695" class="label no">NO</text>
+  <path d="M600 750 L600 795" class="arrow"/>
+  <text x="610" y="775" class="label yes">YES</text>
+</svg>

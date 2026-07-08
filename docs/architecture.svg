@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Jamf self heal architecture diagram">
+  <defs>
+    <style>
+      .bg{fill:#f8fafc}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2;rx:18}.title{font:700 28px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#0f172a}.h{font:700 18px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#0f172a}.t{font:500 15px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#334155}.small{font:500 13px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#475569}.arrow{stroke:#2563eb;stroke-width:3;fill:none;marker-end:url(#arrow)}.dash{stroke:#94a3b8;stroke-width:2;fill:none;stroke-dasharray:8 6;marker-end:url(#arrow2)}.good{fill:#ecfdf5;stroke:#22c55e}.warn{fill:#fff7ed;stroke:#f97316}.bad{fill:#fef2f2;stroke:#ef4444}.blue{fill:#eff6ff;stroke:#3b82f6}.purple{fill:#faf5ff;stroke:#a855f7}.mono{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#1e293b}
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#2563eb"/></marker>
+    <marker id="arrow2" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect class="bg" width="1200" height="720"/>
+  <text x="60" y="60" class="title">Jamf Self-Heal Architecture</text>
+  <text x="60" y="92" class="t">Background health check, safe classification, user approval, and root repair execution.</text>
+
+  <rect x="60" y="140" width="260" height="140" class="card blue"/>
+  <text x="85" y="176" class="h">LaunchDaemon</text>
+  <text x="85" y="204" class="mono">com.bd.jamf.healthcheck</text>
+  <text x="85" y="235" class="t">Runs every 1 hour as root</text>
+  <text x="85" y="260" class="small">Executes lightweight checks only</text>
+
+  <rect x="470" y="125" width="280" height="170" class="card"/>
+  <text x="495" y="160" class="h">Classifier</text>
+  <text x="495" y="190" class="t">Separates root cause:</text>
+  <text x="515" y="218" class="small">• Network / speed issue</text>
+  <text x="515" y="242" class="small">• Jamf URL reachability issue</text>
+  <text x="515" y="266" class="small">• Local Jamf / MDM issue</text>
+
+  <rect x="890" y="100" width="250" height="135" class="card warn"/>
+  <text x="915" y="135" class="h">Notify only</text>
+  <text x="915" y="165" class="t">Bad internet, slow speed,</text>
+  <text x="915" y="188" class="t">VPN/proxy/DNS/Jamf URL</text>
+  <text x="915" y="212" class="small">No destructive repair</text>
+
+  <rect x="890" y="310" width="250" height="155" class="card purple"/>
+  <text x="915" y="345" class="h">LaunchAgent</text>
+  <text x="915" y="373" class="mono">com.bd.jamf.repair.prompt</text>
+  <text x="915" y="405" class="t">Shows user message</text>
+  <text x="915" y="429" class="small">2 days notification first</text>
+  <text x="915" y="452" class="small">Then SwiftDialog popup</text>
+
+  <rect x="470" y="425" width="280" height="160" class="card good"/>
+  <text x="495" y="460" class="h">Root repair runner</text>
+  <text x="495" y="488" class="mono">com.bd.jamf.repair.runner</text>
+  <text x="495" y="520" class="t">Runs only after user approval</text>
+  <text x="495" y="545" class="small">Executes full repair script as root</text>
+
+  <rect x="60" y="425" width="260" height="160" class="card bad"/>
+  <text x="85" y="460" class="h">Full repair</text>
+  <text x="85" y="488" class="mono">JamfHealthRepair.zsh</text>
+  <text x="85" y="520" class="t">Clean broken Jamf state</text>
+  <text x="85" y="545" class="small">Trigger ADE re-enrollment</text>
+  <text x="85" y="568" class="small">Guide Device Management + SSO</text>
+
+  <path d="M320 210 C370 210 420 210 470 210" class="arrow"/>
+  <path d="M750 190 C805 170 845 160 890 160" class="arrow"/>
+  <path d="M750 245 C825 280 860 350 890 380" class="arrow"/>
+  <path d="M890 425 C830 505 790 505 750 505" class="arrow"/>
+  <path d="M470 505 C420 505 370 505 320 505" class="arrow"/>
+  <path d="M190 425 C190 365 190 325 190 280" class="dash"/>
+
+  <rect x="60" y="635" width="1080" height="42" rx="14" fill="#e0f2fe" stroke="#38bdf8"/>
+  <text x="85" y="662" class="t">Safety rule: repair is allowed only for local Jamf / MDM client problems, not for normal network, DNS, proxy, VPN, speed, or Jamf Cloud reachability failures.</text>
+</svg>
