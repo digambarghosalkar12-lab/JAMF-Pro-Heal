@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.bd.jamf.healthcheck</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/zsh</string>
+        <string>/Library/Application Support/BD/JamfRepair/JamfHealthCheckLite.zsh</string>
+    </array>
+
+    <key>StartInterval</key>
+    <integer>3600</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/var/log/com.bd.jamf.healthcheck.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/var/log/com.bd.jamf.healthcheck.err.log</string>
+</dict>
+</plist>

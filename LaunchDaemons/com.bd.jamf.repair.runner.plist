@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.bd.jamf.repair.runner</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/zsh</string>
+        <string>/Library/Application Support/BD/JamfRepair/JamfRepairRootRunner.zsh</string>
+    </array>
+
+    <key>WatchPaths</key>
+    <array>
+        <string>/var/db/com.bd.jamfrepair/run_repair_approved.flag</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/var/log/com.bd.jamf.repair.runner.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/var/log/com.bd.jamf.repair.runner.err.log</string>
+</dict>
+</plist>
