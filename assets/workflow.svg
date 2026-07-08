@@ -1,0 +1,46 @@
+<svg width="1200" height="780" viewBox="0 0 1200 780" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="780" fill="#f7f7f8"/>
+  <text x="600" y="45" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#222">Repair Workflow</text>
+  <g font-family="Arial" font-size="17" fill="#222">
+    <rect x="450" y="80" width="300" height="70" rx="16" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="600" y="123" text-anchor="middle" font-weight="700">Start health validation</text>
+
+    <rect x="450" y="190" width="300" height="80" rx="16" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="600" y="222" text-anchor="middle" font-weight="700">Jamf + MDM + Network</text>
+    <text x="600" y="248" text-anchor="middle">Speed, DNS, SSL, recon, profiles</text>
+
+    <polygon points="600,310 760,390 600,470 440,390" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="600" y="383" text-anchor="middle" font-weight="700">All critical</text>
+    <text x="600" y="407" text-anchor="middle" font-weight="700">checks pass?</text>
+
+    <rect x="80" y="355" width="270" height="80" rx="16" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="215" y="388" text-anchor="middle" font-weight="700">Healthy path</text>
+    <text x="215" y="415" text-anchor="middle">Show “Jamf is Good”</text>
+
+    <rect x="850" y="330" width="280" height="130" rx="16" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="990" y="362" text-anchor="middle" font-weight="700">Repair path</text>
+    <text x="990" y="390" text-anchor="middle">Remove MDM/Jamf leftovers</text>
+    <text x="990" y="418" text-anchor="middle">Make user admin</text>
+    <text x="990" y="446" text-anchor="middle">Precheck connectivity</text>
+
+    <rect x="850" y="520" width="280" height="110" rx="16" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="990" y="552" text-anchor="middle" font-weight="700">Re-enrollment</text>
+    <text x="990" y="580" text-anchor="middle">profiles renew -type enrollment</text>
+    <text x="990" y="608" text-anchor="middle">Swift Dialog 3-min guide</text>
+
+    <rect x="450" y="660" width="300" height="80" rx="16" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="600" y="693" text-anchor="middle" font-weight="700">Validate working MDM profile</text>
+    <text x="600" y="720" text-anchor="middle">Mark device good</text>
+  </g>
+  <g stroke="#333" stroke-width="3" marker-end="url(#arrow)">
+    <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker></defs>
+    <line x1="600" y1="150" x2="600" y2="190"/>
+    <line x1="600" y1="270" x2="600" y2="310"/>
+    <line x1="440" y1="390" x2="350" y2="395"/>
+    <line x1="760" y1="390" x2="850" y2="395"/>
+    <line x1="990" y1="460" x2="990" y2="520"/>
+    <path d="M850 585 C760 630, 700 650, 640 660" fill="none"/>
+  </g>
+  <text x="390" y="375" font-family="Arial" font-size="18" font-weight="700" fill="#222">Yes</text>
+  <text x="790" y="375" font-family="Arial" font-size="18" font-weight="700" fill="#222">No</text>
+</svg>
